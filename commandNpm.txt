@@ -1,1 +1,3 @@
 npm list --depth=0 => information about packages
+
+npm outdated => information about the old packages
