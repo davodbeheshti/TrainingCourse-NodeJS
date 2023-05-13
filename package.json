@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/davodbeheshti/TrainingCourse-NodeJS/issues"
   },
-  "homepage": "https://github.com/davodbeheshti/TrainingCourse-NodeJS#readme"
+  "homepage": "https://github.com/davodbeheshti/TrainingCourse-NodeJS#readme",
+  "dependencies": {
+    "chalk": "^5.2.0"
+  }
 }
