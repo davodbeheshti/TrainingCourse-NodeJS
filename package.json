@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -e heml,js,json main.js",
-    "davod" : "hello world"
+    "testName" : "npm start",
+    "testQute" : "npm run testName"
   },
   "repository": {
     "type": "git",
