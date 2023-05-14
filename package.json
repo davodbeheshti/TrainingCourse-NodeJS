@@ -2,12 +2,9 @@
   "name": "trainingcourse-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e heml,js,json main.js",
-    "testName" : "npm start",
-    "testQute" : "npm run testName"
+    "start": "nodemon -e heml,js,json app.js"
   },
   "repository": {
     "type": "git",
