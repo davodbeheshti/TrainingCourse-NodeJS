@@ -11,7 +11,12 @@ const fs = require('fs');
 //     console.log('data is appended');
 // })
 
-fs.rename('test.txt' , 'testRenam.txt' , (err) => {
+// fs.rename('test.txt' , 'testRenam.txt' , (err) => {
+//     if(err) throw err;
+//     console.log('data is renamed');
+// })
+
+fs.unlink('testRenam.txt' , (err) => {
     if(err) throw err;
-    console.log('data is renamed');
+    console.log('data is unlinked');
 })
