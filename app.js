@@ -1,4 +1,7 @@
 // const http = require('http');
+const fs = require('fs');
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -6,23 +9,21 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-    console.log('this runs everyTime')
-    next()
-})
-
-app.use('/hello', (req, res, next) => {
+app.get('/hello', (req, res, next) => {
     res.send('<h1>hello world</h1>')
     // next()
 })
 
-app.use('/message', (req, res, next) => {
-    console.log(req.body);
-    res.redirect('/')
+app.post('/message', (req, res, next) => {
+    console.log(req.body.message);
+    fs.writeFile('message.txt' , req.body.message , err => {
+        if(err) throw err;
+        res.redirect('/')
+    })
     // next()
 })
 
-app.use("/", (req, res, next) => {
+app.get("/", (req, res, next) => {
     res.send(
         `<center>
             <form method="POST" action="/message">
