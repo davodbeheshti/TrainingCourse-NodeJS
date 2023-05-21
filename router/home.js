@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 const router = express.Router();
 
@@ -9,15 +10,7 @@ router.get('/hello', (req, res, next) => {
 })
 
 router.get("/", (req, res, next) => {
-    res.send(
-        `<center>
-            <form method="POST" action="admin/message">
-                <input type="text" name="message" />
-                <input type="submit"/>
-            </form>
-        </center>
-        `
-    );
+    res.sendFile(path.join(__dirname , '../' , 'views' , 'index.html'))
 })
 
 module.exports = router;
