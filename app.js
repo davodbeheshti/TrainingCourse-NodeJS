@@ -9,7 +9,7 @@ app.set('view engine' , 'pug');
 app.set("views" , 'views')
 
 app.get('/' , (req , res) => {
-    const arr = [ 
+    const arr = [
         {name : 'davod beheshti' , age : 23},
         {name : 'davod' , age : 24353},
         {name : 'tara hoseini', age : 21},
