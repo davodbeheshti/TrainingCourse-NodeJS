@@ -7,7 +7,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.set('view engine' , 'pug');
-console.log('sjdlf')
 app.engine('hbs', exphbs.engine({
     extname: "hbs",
     layoutsDir: "views/layouts",
