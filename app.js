@@ -13,12 +13,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     defaultLayout: "main",
 //     partialsDir: "views/partials",
 // }));
-app.set('view engine' , 'ejs');
+app.set('view engine', 'ejs');
 // app.set('view engine', 'hbs');
 app.set("views", 'views')
 
+app.get('/laqh', (req, res) => {
+    res.render('index', { titlePage: "about page", text: "hello about page",path: '/laqh' , names: [] })
+})
 app.get('/about', (req, res) => {
-    res.render('index', { titlePage: "about page", text: "hello about page", names : []})
+    res.render('index', { titlePage: "about page", text: "hello about page", path: '/about', names: [] })
 })
 app.get('/', (req, res) => {
     const arr = [
@@ -27,7 +30,7 @@ app.get('/', (req, res) => {
         { name: 'tara hoseini', age: 21 },
         { name: 'mona yari', age: 20 },
     ]
-    res.render('index', { titlePage: "first Page with pug", text: "hello davod jonam", names: arr })
+    res.render('index', { titlePage: "first Page with pug", text: "hello davod jonam", path: '/', names: arr })
 })
 
 app.listen(3000, () => console.log("server is runing."))

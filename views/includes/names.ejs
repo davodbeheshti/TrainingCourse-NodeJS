@@ -1,0 +1,11 @@
+<% if(names.length> 0) { %>
+    <div>
+        <% for(let person of names) {%>
+            <p>
+                <%= person.name %> ==== <%=person.age %>
+            </p>
+            <% } %>
+    </div>
+    <% } else { %>
+        <h1>هیچ مقداری وجود ندارد </h1>
+        <% } %>
