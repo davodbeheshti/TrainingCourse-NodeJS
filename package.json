@@ -2,9 +2,9 @@
   "name": "trainingcourse-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon -e heml,js,json app.js"
+    "start": "nodemon -e heml,js,json server.js"
   },
   "repository": {
     "type": "git",
