@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-rtl.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <title><%= pageTitle %></title>
+    <title>
+        <%= pageTitle %>
+    </title>
 </head>
-<body>
 
-    <div class="form-group">
-        <h1>کار های روزمره</h1>
+<body class="rtl">
+
+    <div class="form-group mt-3">
         <form action="/admin/add-todo" role="form" class="row w-50 justify-content-center mx-auto" method="post">
-
+            <div class="input-group">
+                <input type="text" name="todo" class="form-control w-50" />
+                <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary fa fa-plus"></button>
+                </div>
+            </div>
         </form>
+        <div class="mx-auto w-50 alert alert-primary row">
+            <p class="d-inline col">کار های انجام شده : <span class="badge badge-success">0</span></p>
+            <p class="d-inline col">کار های باقی مانده : <span class="badge badge-warning">0</span></p>
+        </div>
     </div>
-    
+
 </body>
+
 </html>
