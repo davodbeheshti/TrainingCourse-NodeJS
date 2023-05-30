@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const { setStatics } = require('./utils/statics');
+const adminRoutes = require('./routes/admin')
 
 const app = express();
 
@@ -21,6 +22,7 @@ setStatics(app);
 //end of statics
 
 //routes
+app.use('/admin', adminRoutes)
 app.get('/', (req, res) => {
     res.render('index', { pageTitle: 'کار های روزمره' });
 })

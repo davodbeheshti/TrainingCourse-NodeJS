@@ -13,9 +13,26 @@ class Todo {
     }
 
     save(callback) {
-        // const data = {id , text , completed}
-        fs.writeFile(filePath, JSON.stringify(this), (err) => {
-            if (err) callback(err)
+        fs.readFile(filePath, (err, fileContent) => {
+            let data;
+            if (!fileContent) {
+                data = [this];
+            } else {
+                data = JSON.parse(fileContent);
+                data.push(this);
+            }
+            fs.writeFile(filePath, JSON.stringify(data), (err) => {
+                if (err) callback(err)
+                else return callback([])
+            })
+        })
+    }
+
+    static fetchAll(callback) {
+        fs.readFile(filePath, (err, fileContent) => {
+            if (err) return [];
+            const todos = JSON.parse(fileContent);
+            callback(todos);
         })
     }
 }
