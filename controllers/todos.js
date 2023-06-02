@@ -8,3 +8,4 @@ exports.getIndex = (req , res) => {
         })
     })
 }
+
