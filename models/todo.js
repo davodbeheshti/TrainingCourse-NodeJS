@@ -1,9 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-const rootDir = require('../utils/path');
-
-const filePath = path.join(rootDir, 'data', 'todos.json')
+const todoUtils = require('../utils/todos')
 
 class Todo {
     constructor(id, text, completed = false) {
@@ -13,19 +8,25 @@ class Todo {
     }
 
     save(callback) {
-        fs.readFile(filePath, (err, fileContent) => {
-            let data;
-            if (!fileContent) {
-                data = [this];
-            } else {
-                data = JSON.parse(fileContent);
-                data.push(this);
-            }
-            fs.writeFile(filePath, JSON.stringify(data), (err) => {
-                if (err) callback(err)
-                else return callback([])
+        todoUtils.getTodos(todos => {
+            todos.push(this);
+            todoUtils.saveTodos(todos, err => {
+                return callback(err)
             })
         })
+        // fs.readFile(filePath, (err, fileContent) => {
+        //     let data;
+        //     if (!fileContent) {
+        //         data = [this];
+        //     } else {
+        //         data = JSON.parse(fileContent);
+        //         data.push(this);
+        //     }
+        //     fs.writeFile(filePath, JSON.stringify(data), (err) => {
+        //         if (err) callback(err)
+        //         else return callback([])
+        //     })
+        // })
     }
 
     static fetchAll(callback) {
@@ -51,11 +52,6 @@ class Todo {
         fs.readFile(filePath, (err, fileContent) => {
             let parseFile = JSON.parse(fileContent);
             parseFile.find(f => f.id === Number(id)).completed = true;
-            // parseFile.map(x => {
-            //     if (x.id === Number(id)) {
-            //         x.completed = true;
-            //     }
-            // })
             fs.writeFile(filePath, JSON.stringify(parseFile), (err) => {
                 callback(err)
             })
