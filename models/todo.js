@@ -11,7 +11,7 @@ class Todo {
         todoUtils.getTodos(todos => {
             todos.push(this);
             todoUtils.saveTodos(todos, err => {
-                return callback(err)
+                callback(err)
             })
         })
         // fs.readFile(filePath, (err, fileContent) => {
@@ -41,14 +41,20 @@ class Todo {
     }
 
     static deleteTodo(id, callback) {
-        fs.readFile(filePath, ((err, fileContent) => {
-            let parseFiles = JSON.parse(fileContent)
-            console.log("=====>>>>", parseFiles, typeof id);
-            parseFiles = parseFiles.filter(f => f.id !== Number(id));
-            fs.writeFile(filePath, JSON.stringify(parseFiles), (err) => {
+        todoUtils.getTodos(todos => {
+            todoUtils.saveTodos(todos, err => {
+                todos.filter(f => f.id !== Number(id));
                 callback(err)
             })
-        }))
+        })
+        // fs.readFile(filePath, ((err, fileContent) => {
+        //     let parseFiles = JSON.parse(fileContent)
+        //     console.log("=====>>>>", parseFiles, typeof id);
+        //     parseFiles = parseFiles.filter(f => f.id !== Number(id));
+        //     fs.writeFile(filePath, JSON.stringify(parseFiles), (err) => {
+        //         callback(err)
+        //     })
+        // }))
     }
 
     static setTodoToComplete(id, callback) {
