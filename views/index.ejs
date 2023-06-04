@@ -25,8 +25,12 @@
             </div>
         </form>
         <div class="mx-auto w-50 alert alert-primary row">
-            <p class="d-inline col">کار های انجام شده : <span class="badge badge-success">0</span></p>
-            <p class="d-inline col">کار های باقی مانده : <span class="badge badge-warning">0</span></p>
+            <p class="d-inline col">کار های انجام شده : <span class="badge badge-success">
+                    <%= completedWork %>
+                </span></p>
+            <p class="d-inline col">کار های باقی مانده : <span class="badge badge-warning">
+                    <%= notCompletedWork %>
+                </span></p>
         </div>
         <% if(todos.length> 0) { %>
             <ul class="list-unstyled" id="todo">
@@ -34,13 +38,16 @@
                     <li>
                         <div class="alert <%= todo.completed ? 'alert-success' : 'alert-secondary' %>">
                             <%= todo.text %>
-                            <a href="/admin/delete-todo/<%= todo.id %>" class="fa fa-trash" style="color : red;"></a>
-                            <a href="/admin/completed-todo/<%= todo.id %>" class="fa fa-check-square mr-2 <%= todo.completed ? 'd-none' : null %>" style="color : green;"></a>
+                                <a href="/admin/delete-todo/<%= todo.id %>" class="fa fa-trash"
+                                    style="color : red;"></a>
+                                <a href="/admin/completed-todo/<%= todo.id %>"
+                                    class="fa fa-check-square mr-2 <%= todo.completed ? 'd-none' : null %>"
+                                    style="color : green;"></a>
                         </div>
                     </li>
                     <% } %>
             </ul>
-            <% } else { %> 
+            <% } else { %>
                 <div class="alert alert-warning w-50 mx-auto" role="alert">
                     <h4 class="alert-heading">هیچ کاری هنوز انجام داده نشده است</h4>
                     <p>کار هات رو اون بالا ثبت کن داداچ</p>
