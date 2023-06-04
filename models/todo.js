@@ -9,6 +9,7 @@ class Todo {
 
     save(callback) {
         todoUtils.getTodos(todos => {
+            console.log("===12==>>>" , this);
             todos.push(this);
             todoUtils.saveTodos(todos, err => {
                 callback(err)
@@ -42,7 +43,7 @@ class Todo {
 
     static deleteTodo(id, callback) {
         todoUtils.getTodos(todos => {
-            todos.filter(f => f.id !== Number(id));
+            todos = todos.filter(f => f.id !== Number(id));
             todoUtils.saveTodos(todos, err => {
                 callback(err)
             })

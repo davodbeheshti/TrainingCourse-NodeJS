@@ -6,8 +6,9 @@ const filePath = path.join(rootDir, 'data', 'todos.json');
 
 exports.getTodos = (callback) => {
     fs.readFile(filePath, (err, fileContent) => {
+        console.log("=====>>>" , JSON.parse(fileContent));
         if (err) return callback([]);
-        callback(JSON.parse(fileContent));
+         callback(JSON.parse(fileContent));
     })
 }
 

@@ -5,7 +5,7 @@ exports.addTodo = (req, res) => {
     if (!req.body.todo) return res.redirect('/');
     const todo = new Todo(generateRandomId(), req.body.todo)
     todo.save((err) => {
-        if (err) {
+        if (!err) {
             res.redirect('/');
         }
         else {
