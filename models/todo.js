@@ -30,11 +30,14 @@ class Todo {
     }
 
     static fetchAll(callback) {
-        fs.readFile(filePath, (err, fileContent) => {
-            if (err) return [];
-            const todos = JSON.parse(fileContent);
-            callback(todos);
+        todoUtils.getTodos(todos => {
+            callback(todos)
         })
+        // fs.readFile(filePath, (err, fileContent) => {
+        //     if (err) return [];
+        //     const todos = JSON.parse(fileContent);
+        //     callback(todos);
+        // })
     }
 
     static deleteTodo(id, callback) {
