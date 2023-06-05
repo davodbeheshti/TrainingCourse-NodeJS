@@ -5,4 +5,4 @@ const sequelize = new Sequelize("todo_db" , "root" , "ab@!NO" , {
     host : "localhost"
 });
 
-module.exports = sequelize;
+module.exports = sequelize; 
