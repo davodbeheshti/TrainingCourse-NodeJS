@@ -1,14 +1,20 @@
 const Todo = require("../models/todo");
 // const { generateRandomId } = require("../utils/todos");
 
-exports.addTodo = (req, res) => {
+exports.addTodo = async (req, res) => {
     if (!req.body.todo) return res.redirect('/');
-    Todo.create({ text: req.body.todo }).then(result => {
-        console.log(result);
+    // Todo.create({ text: req.body.todo }).then(result => {
+    //     console.log(result);
+    //     res.redirect('/');
+    // }).catch(err => {
+    //     console.log(err);
+    // })
+    try {
+        await Todo.create({text: req.body.todo});
         res.redirect('/');
-    }).catch(err => {
-        console.log(err);
-    })
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 exports.deleteTodo = (req, res) => {

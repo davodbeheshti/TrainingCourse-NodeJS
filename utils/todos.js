@@ -24,15 +24,15 @@ exports.generateRandomId = () => {
 
 exports.getCountWorks = (callback) => {
     this.getTodos(todos => {
-        let completedWork = 0;
-        let notCompletedWork = 0;
+        let completedTodos = 0;
+        let notcompletedTodos = 0;
         todos.map(t => {
             if (t.completed) {
-                completedWork += 1;
+                completedTodos += 1;
             } else {
-                notCompletedWork += 1;
+                notcompletedTodos += 1;
             }
         })
-        callback({ completedWork, notCompletedWork , countAllWork : todos.length})
+        callback({ completedTodos, notcompletedTodos , countAllWork : todos.length})
     })
 }
