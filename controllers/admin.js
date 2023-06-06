@@ -3,12 +3,6 @@ const Todo = require("../models/todo");
 
 exports.addTodo = async (req, res) => {
     if (!req.body.todo) return res.redirect('/');
-    // Todo.create({ text: req.body.todo }).then(result => {
-    //     console.log(result);
-    //     res.redirect('/');
-    // }).catch(err => {
-    //     console.log(err);
-    // })
     try {
         await Todo.create({text: req.body.todo});
         res.redirect('/');
