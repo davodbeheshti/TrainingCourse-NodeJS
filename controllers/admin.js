@@ -12,10 +12,9 @@ exports.addTodo = (req, res) => {
 }
 
 exports.deleteTodo = (req, res) => {
-    Todo.deleteTodo(req.params.id, (err) => {
-        if (!err) res.redirect("/")
-        else console.log(err);
-    })
+    Todo.destroy({ where: { id: req.params.id } }).then(() => {
+        res.redirect('/');
+    }).catch(err => console.log(err))
 }
 
 exports.completedTodo = (req, res) => {
