@@ -20,15 +20,24 @@ exports.deleteTodo = async (req, res) => {
     }
 }
 
-exports.completedTodo = (req, res) => {
+exports.completedTodo = async (req, res) => {
     // Todo.setTodoToComplete(req.params.id, (err) => {
     //     if (!err) res.redirect("/")
     //     else console.log(err);
     // })
-    Todo.findByPk(req.params.id).then(todo => {
-        todo.completed = true;
-        return todo.save();
-    })
-    .then(() => res.redirect('/'))
-    .catch(err => console.log(err))
+    // Todo.findByPk(req.params.id).then(todo => {
+    //     todo.completed = true;
+    //     return todo.save();
+    // })
+    // .then(() => res.redirect('/'))
+    // .catch(err => console.log(err))
+    try {
+       const todo = await Todo.findByPk(req.params.id)
+       todo.completed = true;
+       await todo.save();
+       res.redirect('/');
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
