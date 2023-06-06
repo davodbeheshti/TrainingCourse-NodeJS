@@ -11,10 +11,13 @@ exports.addTodo = async (req, res) => {
     }
 }
 
-exports.deleteTodo = (req, res) => {
-    Todo.destroy({ where: { id: req.params.id } }).then(() => {
+exports.deleteTodo = async (req, res) => {
+    try {
+        await Todo.destroy({where : {id : req.params.id}});
         res.redirect('/');
-    }).catch(err => console.log(err))
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 exports.completedTodo = (req, res) => {
