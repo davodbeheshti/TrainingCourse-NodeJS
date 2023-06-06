@@ -6,7 +6,7 @@ const sequelize = require('../utils/database');
 const Todo = sequelize.define("Todo" , {
     id : {
         type : DataTypes.INTEGER,
-        autoIncrement : truem,
+        autoIncrement : true,
         primaryKey : true,
         allowNull : false
     },
@@ -22,7 +22,7 @@ const Todo = sequelize.define("Todo" , {
 })
 
 
-module.exports = Todo;
+module.exports = Todo; 
 
 
 

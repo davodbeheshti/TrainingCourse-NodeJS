@@ -1,16 +1,13 @@
 const Todo = require("../models/todo");
-const { generateRandomId } = require("../utils/todos");
+// const { generateRandomId } = require("../utils/todos");
 
 exports.addTodo = (req, res) => {
     if (!req.body.todo) return res.redirect('/');
-    const todo = new Todo(generateRandomId(), req.body.todo)
-    todo.save((err) => {
-        if (!err) {
-            res.redirect('/');
-        }
-        else {
-            console.log(err);
-        }
+    Todo.create({ text: req.body.todo }).then(result => {
+        console.log(result);
+        res.redirect('/');
+    }).catch(err => {
+        console.log(err);
     })
 }
 
