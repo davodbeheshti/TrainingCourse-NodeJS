@@ -18,7 +18,7 @@ exports.getIndex = async (req, res) => {
     res.render("index", {
         pageTitle: "کارهای روزمره",
         todos, 
-        completedTodos,
+        completedTodos, 
         notcompletedTodos: todos.length - completedTodos
     })
 }
