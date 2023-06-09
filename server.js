@@ -33,7 +33,4 @@ app.use('/admin', adminRoutes)
 //404
 app.use(errorController.get404)
 
-sequelize.sync().then(result => {
-    console.log(result);
-    app.listen(3000, () => console.log('server is running'));
-}).catch(error => console.log(error))
+app.listen(3000, () => console.log('server is running'));
