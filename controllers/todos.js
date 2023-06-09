@@ -17,7 +17,7 @@ exports.getIndex = async (req, res) => {
     const todos = await Todo.findAll();
     res.render("index", {
         pageTitle: "کارهای روزمره",
-        todos,
+        todos, 
         completedTodos,
         notcompletedTodos: todos.length - completedTodos
     })
