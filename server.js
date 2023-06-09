@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// dataBase Connection
+require('./utils/database');
+// end dataBase Connection
 const { setStatics } = require('./utils/statics');
 const adminRoutes = require('./routes/admin');
 const indexRoutes = require('./routes/index');
 const errorController = require('./controllers/error');
-const sequelize = require('./utils/database');
 
 const app = express();
 
