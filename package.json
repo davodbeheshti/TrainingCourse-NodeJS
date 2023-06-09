@@ -25,10 +25,8 @@
     "express-handlebars": "^7.0.7",
     "font-awesome": "^4.7.0",
     "mongoose": "^5.10.16",
-    "mysql2": "^3.3.3",
     "nodemon": "^2.0.22",
     "pug": "^3.0.2",
-    "sequelize": "^6.32.0",
     "uuid": "^9.0.0",
     "yargs": "^17.7.2"
   }
