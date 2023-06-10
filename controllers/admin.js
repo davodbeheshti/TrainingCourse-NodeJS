@@ -13,7 +13,7 @@ exports.addTodo = async (req, res) => {
 
 exports.deleteTodo = async (req, res) => {
     try {
-        await Todo.destroy({where : {id : req.params.id}});
+        await Todo.findByIdAndRemove(req.params.id);
         res.redirect('/');
     } catch (error) {
         console.log(error);
@@ -32,7 +32,7 @@ exports.completedTodo = async (req, res) => {
     // .then(() => res.redirect('/'))
     // .catch(err => console.log(err))
     try {
-       const todo = await Todo.findByPk(req.params.id)
+       const todo = await Todo.findById(req.params.id)
        todo.completed = true;
        await todo.save();
        res.redirect('/');
