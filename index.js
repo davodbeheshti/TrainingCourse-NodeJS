@@ -10,7 +10,7 @@ const db = new sqlite3.Database(dbFile , err => {
 });
 
 // redis
-const redis = require('redis')
+const redis = require('redis') 
 const client = redis.createClient(); // connect to localHost 6379
 client.on('error' , (err) => console.log(err)); // handle error
 
