@@ -3,7 +3,7 @@ const { Router } = require('express');
 const router = new Router();
 
 router.get("/", (req, res) => {
-    res.send("index", { pageTitle: 'وبلاگ' })
+    res.render("index", { pageTitle: 'وبلاگ' })
 })
 
-module.exports.router = router;
+module.exports = router;
