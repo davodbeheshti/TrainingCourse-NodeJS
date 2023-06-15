@@ -18,4 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // routes
 app.use(indexRoutes);
+
+const PORT = process.env.PORT || 5000;
+
 app.listen(3000, () => console.log('server is runnint on port 3000'));
