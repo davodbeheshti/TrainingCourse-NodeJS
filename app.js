@@ -1,7 +1,12 @@
 const path = require('path');
 
 const express = require('express');
+const dotEnv = require('dotenv');
+
 const indexRoutes = require('./routes')
+
+/// load config
+dotEnv.config({path : './config/config.env'});
 
 const app = express();
 
