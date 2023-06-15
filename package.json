@@ -35,5 +35,8 @@
     "sqlite3": "^5.1.6",
     "uuid": "^9.0.0",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
