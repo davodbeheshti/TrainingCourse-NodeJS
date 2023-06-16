@@ -5,9 +5,13 @@ const dotEnv = require('dotenv');
 const morgan = require('morgan');
 
 const indexRoutes = require('./routes')
+const connectDB = require('./config/db');
 
 /// load config
 dotEnv.config({path : './config/config.env'});
+
+// dataBase connection
+connectDB();
 
 const app = express();
 
