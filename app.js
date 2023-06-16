@@ -11,6 +11,11 @@ dotEnv.config({path : './config/config.env'});
 
 const app = express();
 
+// logging
+if(process.env.NODE_ENV === "development") {
+    app.use(morgan("dev"));
+}
+
 // view engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');
