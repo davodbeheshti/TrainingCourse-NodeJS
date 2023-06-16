@@ -29,6 +29,7 @@
     "express-session": "^1.17.3",
     "font-awesome": "^4.7.0",
     "mongoose": "^5.10.16",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "pug": "^3.0.2",
     "redis": "^4.6.7",
