@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const dotEnv = require('dotenv');
+const morgan = require('morgan');
 
 const indexRoutes = require('./routes')
 
