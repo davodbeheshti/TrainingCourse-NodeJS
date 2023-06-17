@@ -1,6 +1,7 @@
 const path = require('path');
 
 const express = require('express');
+const expressLayout = require('express-ejs-layouts');
 const dotEnv = require('dotenv');
 const morgan = require('morgan');
 
@@ -21,6 +22,7 @@ if(process.env.NODE_ENV === "development") {
 }
 
 // view engine
+app.use(expressLayout);
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 // static folder
