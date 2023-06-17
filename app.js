@@ -24,6 +24,7 @@ if(process.env.NODE_ENV === "development") {
 // view engine
 app.use(expressLayout);
 app.set('view engine', 'ejs');
+app.set('layout' , './layouts/mainLayout');
 app.set('views', 'views');
 // static folder
 app.use(express.static(path.join(__dirname, 'public')))
