@@ -5,7 +5,7 @@ const expressLayout = require('express-ejs-layouts');
 const dotEnv = require('dotenv');
 const morgan = require('morgan');
 
-const indexRoutes = require('./routes')
+const blogRoutes = require('./routes/blog')
 const connectDB = require('./config/db');
 
 /// load config
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // app.use(express.static(path.join(__dirname , process.env.FONTAWESOME)))
 
 // routes
-app.use(indexRoutes);
+app.use(blogRoutes);
 
 const PORT = process.env.PORT || 3000;
 
