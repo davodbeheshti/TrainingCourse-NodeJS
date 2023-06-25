@@ -10,5 +10,10 @@ router.get('/register' , (req , res) => {
     res.render('register' , {pageTitle : "ثبت نام کاربر" , path : "/register"})
 })
 
+router.post('/register' , (req , res) => {
+    console.log(req.body);
+    res.send('weblog');
+})
+
 
 module.exports = router;

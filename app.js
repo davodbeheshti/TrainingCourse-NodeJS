@@ -25,6 +25,9 @@ app.use(expressLayout);
 app.set('view engine', 'ejs');
 app.set('layout' , './layouts/mainLayout');
 app.set('views', 'views');
+
+//body parser
+app.use(express.urlencoded({extended : false}));
 // static folder
 app.use(express.static(path.join(__dirname, 'public')))
 // app.use(express.static(path.join(__dirname , process.env.BOOTSTRAP)))
