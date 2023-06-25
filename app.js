@@ -6,8 +6,6 @@ const dotEnv = require('dotenv');
 const morgan = require('morgan');
 
 const connectDB = require('./config/db');
-const blogRoutes = require('./routes/blog');
-const dashRoutes = require('./routes/dashboard')
 
 /// load config
 dotEnv.config({path : './config/config.env'});
@@ -33,8 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 // app.use(express.static(path.join(__dirname , process.env.FONTAWESOME)))
 
 // routes
-app.use('/dashboard' , dashRoutes);
-app.use(blogRoutes);
+app.use("/" , require('./routes/blog'));
+app.use('/users' , require('./routes/users'))
+app.use('/dashboard' , require('./routes/dashboard'));
 
 const PORT = process.env.PORT || 3000;
 
