@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // routes
 app.use("/" , require('./routes/blog'));
-app.use('/users' , require('./routes/users'))
+app.use('/users' , require('./routes/users')) 
 app.use('/dashboard' , require('./routes/dashboard'));
 
 const PORT = process.env.PORT || 3000;
