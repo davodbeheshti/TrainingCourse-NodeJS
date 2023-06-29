@@ -31,7 +31,7 @@ app.use(express.urlencoded({extended : false}));
 // static folder
 app.use(express.static(path.join(__dirname, 'public')))
 // app.use(express.static(path.join(__dirname , process.env.BOOTSTRAP)))
-// app.use(express.static(path.join(__dirname , process.env.FONTAWESOME))) 
+// app.use(express.static(path.join(__dirname , process.env.FONTAWESOME)))  
 
 // routes
 app.use("/" , require('./routes/blog'));
