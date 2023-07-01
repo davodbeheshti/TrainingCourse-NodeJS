@@ -4,8 +4,8 @@ const Yup = require('yup');
 const router = new Router();
 
 const schema = Yup.object().shape({
-    fullname: Yup.string().required().min(4).max(255),
-    email: Yup.string().required(),
+    fullname: Yup.string().required("نام و نام خانوادگی الزامی میباشد").min(4).max(255),
+    email: Yup.string().required("ایمیل الزامی میباشد"),
     password: Yup.string().min(4).max(255).required(),
     confirmPassword: Yup.string().required().oneOf([Yup.ref('password'), null])
 })
@@ -19,13 +19,23 @@ router.get('/register', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    const validator = schema.isValid(req.body);
-    console.log(validator);
-    if (validator) {
+    // const validator = schema.isValid(req.body);
+    // validator.then(result => {
+    //     console.log(result);
+    //     res.send('all good');
+    // }).catch(ex => {
+    //     console.log(ex);
+    //     res.send('err ')
+    // })
+
+    schema.validate(req.body)
+    .then((result) => {
+        console.log(result);
         res.send('all good');
-    } else {
-        res.send('err')
-    }
+    }).catch(err => {
+        console.log(err);
+        res.send("err" , {errors : err.errors});
+    })
 })
 
 
