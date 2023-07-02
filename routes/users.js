@@ -29,13 +29,13 @@ router.post('/register', (req, res) => {
     // })
 
     schema.validate(req.body)
-    .then((result) => {
-        console.log(result);
-        res.send('all good');
-    }).catch(err => {
-        console.log(err);
-        res.send("err" , {errors : err.errors});
-    })
+        .then((result) => {
+            console.log(result);
+            res.redirect("/users/login");
+        }).catch(err => {
+            console.log(err);
+            res.render("register", { pageTitle: "", path: "/register", errors: err.errors });
+        })
 })
 
 
