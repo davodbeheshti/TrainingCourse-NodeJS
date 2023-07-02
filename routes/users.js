@@ -30,10 +30,8 @@ router.post('/register', (req, res) => {
 
     schema.validate(req.body)
         .then((result) => {
-            console.log(result);
             res.redirect("/users/login");
         }).catch(err => {
-            console.log(err.errors);
             res.render("register", { pageTitle: "ثبت نام کاربر", path: "/register", errors: err.errors });
         })
 })
