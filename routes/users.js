@@ -33,8 +33,8 @@ router.post('/register', (req, res) => {
             console.log(result);
             res.redirect("/users/login");
         }).catch(err => {
-            console.log(err);
-            res.render("register", { pageTitle: "", path: "/register", errors: err.errors });
+            console.log(err.errors);
+            res.render("register", { pageTitle: "ثبت نام کاربر", path: "/register", errors: err.errors });
         })
 })
 
