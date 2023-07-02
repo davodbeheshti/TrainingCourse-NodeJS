@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/bootstrap-rtl.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <% if(path === '/login' ||  path === '/register'){ %>
+    <% if(path==='/login' || path==='/register' ){ %>
         <link rel="stylesheet" href="/css/signin.css">
         <% } %>
             <title>
                 <%= pageTitle %>
             </title>
 </head>
+
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <body class="rtl">
     <%- body %>
