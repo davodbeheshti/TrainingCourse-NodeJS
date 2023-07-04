@@ -28,6 +28,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-handlebars": "^7.0.7",
     "express-session": "^1.17.3",
+    "fastest-validator": "^1.17.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.7.0",
     "mongoose": "^5.10.16",
