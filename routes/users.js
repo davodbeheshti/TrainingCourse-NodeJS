@@ -3,13 +3,6 @@ const Yup = require('yup');
 
 const router = new Router();
 
-// const schema = Yup.object().shape({
-//     fullname: Yup.string().required("نام و نام خانوادگی الزامی میباشد").min(4).max(255),
-//     email: Yup.string().required("ایمیل الزامی میباشد"),
-//     password: Yup.string().min(4).max(255).required(),
-//     confirmPassword: Yup.string().required().oneOf([Yup.ref('password'), null])
-// })
-
 const schema = Yup.object().shape({
     fullname: Yup.string()
         .required("نام و نام خانوادگی الزامی می باشد")
