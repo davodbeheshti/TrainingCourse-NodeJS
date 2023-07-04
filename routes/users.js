@@ -1,7 +1,9 @@
 const { Router } = require('express');
 // const Yup = require('yup');
+const Validator = require('fastest-validator');
 
 const router = new Router();
+const v = new Validator();
 
 // const schema = Yup.object().shape({
 //     fullname: Yup.string()
