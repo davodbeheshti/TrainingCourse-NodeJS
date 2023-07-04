@@ -3,12 +3,29 @@ const Yup = require('yup');
 
 const router = new Router();
 
+// const schema = Yup.object().shape({
+//     fullname: Yup.string().required("نام و نام خانوادگی الزامی میباشد").min(4).max(255),
+//     email: Yup.string().required("ایمیل الزامی میباشد"),
+//     password: Yup.string().min(4).max(255).required(),
+//     confirmPassword: Yup.string().required().oneOf([Yup.ref('password'), null])
+// })
+
 const schema = Yup.object().shape({
-    fullname: Yup.string().required("نام و نام خانوادگی الزامی میباشد").min(4).max(255),
-    email: Yup.string().required("ایمیل الزامی میباشد"),
-    password: Yup.string().min(4).max(255).required(),
-    confirmPassword: Yup.string().required().oneOf([Yup.ref('password'), null])
-})
+    fullname: Yup.string()
+        .required("نام و نام خانوادگی الزامی می باشد")
+        .min(4, "نام و نام خانوادگی نباید کمتر از 4 کاراکتر باشد")
+        .max(255, "نام و نام خانوادگی نباید بیشتر از 255 کاراکتر باشد"),
+    email: Yup.string()
+        .email("ایمیل معتبر نمی باشد")
+        .required("ایمیل الزامی می باشد"),
+    password: Yup.string()
+        .min(4, "کلمه عبور نباید کمتر از 4 کاراکتر باشد")
+        .max(255, "کلمه عبور نباید بیشتر از 255 کاراکتر باشد")
+        .required("کلمه عبور الزامی می باشد"),
+    confirmPassword: Yup.string()
+        .required("تکرار کلمه عبور الزامی می باشد")
+        .oneOf([Yup.ref("password"), null]),
+});
 
 router.get('/login', (req, res) => {
     res.render('login', { pageTitle: "ورود به بخش مدیریت", path: "/login" })
