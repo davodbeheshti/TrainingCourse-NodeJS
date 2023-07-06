@@ -52,7 +52,7 @@ const schema = {
 };
 
 router.get('/login', (req, res) => {
-    res.render('login', { pageTitle: "ورود به بخش مدیریت", path: "/login" })
+    res.render('login', { pageTitle: "ورود به بخش مدیریت", path: "/login" }) 
 })
 
 router.get('/register', (req, res) => {
