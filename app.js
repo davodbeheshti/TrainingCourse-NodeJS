@@ -37,7 +37,7 @@ app.use('/users' , require('./routes/users'))
 app.use('/dashboard' , require('./routes/dashboard'));
 app.use((req , res) => {
     res.render('404' , {pageTitle: "صفحه پیدا نشد | 404"  , path : "/404"})
-})
+}) 
 
 const PORT = process.env.PORT || 3000;
 
