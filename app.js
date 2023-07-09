@@ -41,4 +41,4 @@ app.use((req , res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log(`server is runnint in ${process.env.NODE_ENV} on mode port ${PORT}`));
+app.listen(PORT, () => console.log(`server is runnint in ${process.env.NODE_ENV} on mode port ${PORT}`)); 
