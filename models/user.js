@@ -1,11 +1,12 @@
 const { data } = require('jquery');
 const mongoose = require('mongoose');
+const  Yap = require('yap');
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
 
     fullname: {
         type: String,
-        require: true,
+        require: [true, "نام و نام خانوادگی الزامی میباشد"],
         trim: true
     },
     email: {
@@ -14,18 +15,21 @@ const UserSchema = new mongoose.Schema({
         uniq: true,
     },
     password: {
-        type : String,
+        type: String,
         require: true,
-        minlength : 4,
+        minlength: 4,
         maxlenght: 255
     },
-    createdAt : {
-        type : Date,
-        default : Date.now 
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 
 })
 
-const User = mongoose.model('User' , UserSchema)
+const schema = 
+
+
+const User = mongoose.model('User', userSchema)
 
 module.exports = User; 
