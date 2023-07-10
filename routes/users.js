@@ -1,5 +1,7 @@
 const { Router } = require('express');
 
+const User = require('../models/user');
+
 const router = new Router();
 
 router.get('/login', (req, res) => {
