@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+const { schema } = require('./secure/userValidation');
+
+
 const userSchema = new mongoose.Schema({
     fullname: {
         type: String,
