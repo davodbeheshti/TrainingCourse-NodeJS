@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Yup = require("yup");
 
 const userSchema = new mongoose.Schema({
     fullname: {

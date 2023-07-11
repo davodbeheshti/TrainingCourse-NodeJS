@@ -1,3 +1,5 @@
+const Yup = require("yup");
+
 exports.schema = Yup.object().shape({
     fullname: Yup.string()
         .required("نام و نام خانوادگی الزامی می باشد")
