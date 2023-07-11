@@ -10,11 +10,17 @@ exports.register = (req, res) => {
 
 
 exports.createUser = async (req, res) => {
+    const errors = [];
     try {
         await User.userValidation(req.body);
+        const { fullName, email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (user) {
+            errors.push({ message: "کاربری با این ایمیل موجود است." });
+            return res.render('register', { pageTitle: "ثبت نام کاربر", path: '/register', errors });
+        }
         await User.create(req.body)
         res.redirect('/users/login')
-        // const { fullName, email, password } = req.body;
         // const user = new User({
         //     fullName,
         //     email,
@@ -28,7 +34,6 @@ exports.createUser = async (req, res) => {
         // })
     } catch (err) {
         console.log("---******---", err);
-        const errors = [];
         err.inner.forEach(e => {
             errors.push({
                 name: e.path,
