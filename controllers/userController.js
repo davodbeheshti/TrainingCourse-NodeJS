@@ -20,18 +20,22 @@ exports.createUser = async (req, res) => {
             errors.push({ message: "کاربری با این ایمیل موجود است." });
             return res.render('register', { pageTitle: "ثبت نام کاربر", path: '/register', errors });
         }
-        bcrypt.genSalt(10, (err, salt) => {
-            if (err) throw err;
-            bcrypt.hash(password, salt, async (err, hash) => {
-                if (err) throw err;
-                await User.create({
-                    fullname,
-                    email,
-                    password: hash
-                })
-            })
-            res.redirect('/users/login')
-        })
+        const hash = await bcrypt.hash(password , 10);
+        await User.create({fullname , email , password : hash});
+        res.redirect('/users/login');
+         
+        // bcrypt.genSalt(10, (err, salt) => {
+        //     if (err) throw err;
+        //     bcrypt.hash(password, salt, async (err, hash) => {
+        //         if (err) throw err;
+        //         await User.create({
+        //             fullname,
+        //             email,
+        //             password: hash
+        //         })
+        //     })
+        //     res.redirect('/users/login')
+        // })
         // await User.create(req.body)
     } catch (err) {
         console.log("---******---", err);
