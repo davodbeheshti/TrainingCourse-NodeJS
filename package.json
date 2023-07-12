@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/davodbeheshti/TrainingCourse-NodeJS#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "bootstrap-v4-rtl": "^4.6.2-1",
     "chalk": "^5.2.0",
