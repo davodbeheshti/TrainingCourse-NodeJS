@@ -21,17 +21,6 @@ exports.createUser = async (req, res) => {
         }
         await User.create(req.body)
         res.redirect('/users/login')
-        // const user = new User({
-        //     fullName,
-        //     email,
-        //     password
-        // })
-        // user.save().then(user => {
-        //     console.log(user);
-        //     res.redirect('/users/login')
-        // }).catch(err => {
-        //     if (err) throw err;
-        // })
     } catch (err) {
         console.log("---******---", err);
         err.inner.forEach(e => {
