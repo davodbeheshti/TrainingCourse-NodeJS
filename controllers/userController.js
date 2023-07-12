@@ -23,20 +23,6 @@ exports.createUser = async (req, res) => {
         const hash = await bcrypt.hash(password , 10);
         await User.create({fullname , email , password : hash});
         res.redirect('/users/login');
-         
-        // bcrypt.genSalt(10, (err, salt) => {
-        //     if (err) throw err;
-        //     bcrypt.hash(password, salt, async (err, hash) => {
-        //         if (err) throw err;
-        //         await User.create({
-        //             fullname,
-        //             email,
-        //             password: hash
-        //         })
-        //     })
-        //     res.redirect('/users/login')
-        // })
-        // await User.create(req.body)
     } catch (err) {
         console.log("---******---", err);
         err.inner.forEach(e => {
