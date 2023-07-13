@@ -36,6 +36,8 @@
     "mongoose": "^5.10.16",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "redis": "^4.6.7",
     "sqlite3": "^5.1.6",
