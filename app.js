@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const passport = require('passport');
 const dotEnv = require('dotenv');
 const morgan = require('morgan');
 const flash = require('connect-flash');
@@ -21,6 +22,9 @@ const app = express();
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 }
+
+// passport configuration
+require('./config/passport');
 
 // view engine
 app.use(expressLayout);
