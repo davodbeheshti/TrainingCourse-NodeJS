@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const User = require("../models/user")
+const User = require("../models/User")
 
 exports.login = (req, res) => {
     res.render('login', { pageTitle: "ورود به بخش مدیریت", path: "/login" , message : req.flash("success_msg") })
