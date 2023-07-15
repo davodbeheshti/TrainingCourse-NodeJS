@@ -1,10 +1,10 @@
 const passport = require('passport');
-const { Sterategy } = require('passport-local');
-const bcrypt = require('cryptjs');
+const { Strategy } = require('passport-local');
+const bcrypt = require('bcryptjs');
 
 const User = require('../models/User');
 
-passport.use(new Sterategy({ usernamefield: 'email' }, async (email, password, done) => {
+passport.use(new Strategy({ usernameField: 'email' }, async (email, password, done) => {
     try {
         const user = await User.findOne({ email });
         if (!user) {

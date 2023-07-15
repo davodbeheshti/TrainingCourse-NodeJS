@@ -8,11 +8,12 @@ exports.login = (req, res) => {
 }
 
 exports.handleLogin = (req , res , next) => {
+    console.log("*******" , req);
     passport.authenticate("local" , {
         successRedirect : "/dashboard",
         failureRedirect : "/users/login",
         failureFlash : true
-    })(req , res , next)
+    })(req , res , next);
 }
 
 exports.register = (req, res) => {
