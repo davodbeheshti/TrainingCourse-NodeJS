@@ -8,21 +8,30 @@ exports.login = (req, res) => {
         pageTitle: "ورود به بخش مدیریت",
         path: "/login",
         message: req.flash("success_msg"),
-        error : req.flash("error")
+        error: req.flash("error")
     })
 }
 
 exports.handleLogin = (req, res, next) => {
     passport.authenticate("local", {
-        successRedirect: "/dashboard",
+        // successRedirect: "/dashboard",
         failureRedirect: "/users/login",
         failureFlash: true
     })(req, res, next);
 }
 
-exports.logout = (req , res) => {
+exports.rememberMe = (req, res) => {
+    if (req.body.remember) {
+        req.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000; // 1day
+    } else {
+        req.session.cookie.expire = null;
+    }
+    res.redirect("/dashboard");
+}
+
+exports.logout = (req, res) => {
     req.logout();
-    req.flash("success_msg" , "خروج موفقیت آمیز بود");
+    req.flash("success_msg", "خروج موفقیت آمیز بود");
     res.redirect('/users/login')
 }
 

@@ -7,7 +7,7 @@ const router = new Router();
 
 router.get('/login', userController.login);
 
-router.post('/login' , userController.handleLogin);
+router.post('/login' , userController.handleLogin , userController.rememberMe);
 
 router.get('/logout' , authenticatd , userController.logout);
 

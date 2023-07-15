@@ -7,10 +7,11 @@ const dotEnv = require('dotenv');
 const morgan = require('morgan');
 const flash = require('connect-flash');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session); 
+const MongoStore = require('connect-mongo'); 
 
 
 const connectDB = require('./config/db');
+const mongoose = require('mongoose');
 
 /// load config
 dotEnv.config({ path: './config/config.env' });
@@ -40,9 +41,9 @@ app.use(express.urlencoded({ extended: false }));
 // session
 app.use(session({
     secret: 'secret',
-    cookie: { maxAge: 60000 },
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store : new MongoStore({mongoUrl : process.env.MONGO_URI})
 }));
 
 // passport
