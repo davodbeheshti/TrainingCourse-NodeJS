@@ -23,7 +23,7 @@ exports.handleLogin = (req, res, next) => {
 exports.logout = (req , res) => {
     req.logout();
     req.flash("success_msg" , "خروج موفقیت آمیز بود");
-    req.redirect('/users/login')
+    res.redirect('/users/login')
 }
 
 exports.register = (req, res) => {
