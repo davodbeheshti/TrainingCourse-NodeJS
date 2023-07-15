@@ -1,8 +1,9 @@
 const { Router } = require("express");
+const {authenticatd} = require("../middlewares/auth")
 
 const router = new Router();
 
-router.get('/' , (req , res) => {
+router.get('/' , authenticatd, (req , res) => {
     res.render('dashboard', {pageTitle : "بخش مدیریت | داشبورد" , path : "/dashboard" , layout : "./layouts/dashLayout"})
 })
 

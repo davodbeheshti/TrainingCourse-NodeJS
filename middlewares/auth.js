@@ -3,5 +3,5 @@ exports.authenticatd = (req, res, next) => {
         return next();
     }
 
-    res.redirect("/404");
+   res.redirect("/404");
 };
