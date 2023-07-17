@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const flash = require('connect-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo'); 
+const winston = require('./config/winston');
 
 
 const connectDB = require('./config/db');
@@ -26,7 +27,7 @@ const app = express();
 // logging
 if (process.env.NODE_ENV === "development") {
     debug("morgan enabled");
-    app.use(morgan("dev"));
+    app.use(morgan("combined" , {stream : winston.stream}));
 }
 
 // passport configuration
