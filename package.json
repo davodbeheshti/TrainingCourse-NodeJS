@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development DEBUG=express:* nodemon app"
+    "dev": "cross-env NODE_ENV=development DEBUG=weblog-project nodemon app"
   },
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "redis": "^4.6.7",
     "sqlite3": "^5.1.6",
     "uuid": "^9.0.0",
+    "winston": "^3.10.0",
     "yargs": "^17.7.2",
     "yup": "^0.29.3"
   },
