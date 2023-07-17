@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const { schema } = require('./secure/userValidation');
 
+const bcrypt = require('bcryptjs')
+
 
 const userSchema = new mongoose.Schema({
     fullname: {
@@ -29,6 +31,8 @@ const userSchema = new mongoose.Schema({
 userSchema.statics.userValidation = function (body) {
     return schema.validate(body, { abortEarly: false });
 };
+
+userSchema.pre("save" , function(next) {})
 
 const User = mongoose.model("User", userSchema);
 
