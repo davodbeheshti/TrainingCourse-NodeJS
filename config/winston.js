@@ -15,7 +15,7 @@ const options = {
         handleExceptions: true,
         format: winston.format.combine(
             winston.format.colorize(),
-            winston.format.simple()
+            winston.format.simple() 
         )
     }
 }
