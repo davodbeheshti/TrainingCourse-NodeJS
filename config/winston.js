@@ -22,8 +22,8 @@ const options = {
 
 const logger = new winston.createLogger({
     transports: [
-        new winston.transport.File(options.File),
-        new winston.transport.Console(options.console),
+        new winston.transports.File(options.File),
+        new winston.transports.Console(options.console),
     ],
     exitOnError: false
 }) 
