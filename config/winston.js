@@ -26,7 +26,7 @@ const logger = new winston.createLogger({
         new winston.transport.Console(options.console),
     ],
     exitOnError: false
-})
+}) 
 
 logger.stream = {
     write: function (message) {
