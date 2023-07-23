@@ -42,7 +42,7 @@ app.set('views', 'views');
 //body parser
 app.use(express.urlencoded({ extended: false }));
 
-// session
+// session 
 app.use(session({
     secret: 'secret',
     resave: false,
